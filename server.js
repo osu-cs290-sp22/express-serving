@@ -1,6 +1,12 @@
 var express = require('express')
 var app = express()
 
+var logger = require('./logger')
+
+app.use(logger)
+
+app.use(express.static(__dirname + '/public'))
+
 app.get('/', function (req, res, next) {
     res.status(200).send("<h1>Home</h1>")
 })
